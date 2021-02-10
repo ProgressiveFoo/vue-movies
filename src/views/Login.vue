@@ -4,16 +4,16 @@
       <div class="card-body">
         <h1 class="card-title text-center">Login</h1>
         <div class="card-text">
-          <form class="form-group" action="">
+    <form @submit.prevent="onSubmit">
 <div class="mb-3">
   <label for="email" class="form-label">Email address</label>
-  <input type="email" class="form-control" id="email" placeholder="email">
+  <input v-model="credentials.email" type="email" class="form-control" id="email" placeholder="email">
 </div>
 <div class="mb-3">
   <label for="password" class="form-label">Password</label>
-  <input type="password" class="form-control" id="password" placeholder="password">
+  <input v-model="credentials.password" type="password" class="form-control" id="password" placeholder="password">
 </div>
-<button class="btn btn-primary">Submit</button>
+<button type="submit" class="btn btn-primary">Submit</button>
           </form> 
         </div>
       </div>
@@ -23,8 +23,27 @@
 
 <script>
 export default {
+  data(){
+    return{
+    credentials: {
+      email: "",
+      password: "",
+      }
+    }
+  },
+  
+  methods: {
+    async onSubmit() {
+      await this.$store.dispatch('login', this.credentials)
+      //this.$router.push('/')
+      }
+  },
 
+  created(){
+    console.log(this.$store)
+    }
 }
+
 </script>
 
 <style>

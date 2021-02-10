@@ -11,6 +11,7 @@ HTTP.interceptors.request.use(function(request) {
   if (token) {
     request.headers["Authorization"] = `Bearer ${token}`;
   }
+  return request;
 });
 
 HTTP.interceptors.response.use(async function(response) {
@@ -19,6 +20,7 @@ HTTP.interceptors.response.use(async function(response) {
     const { data } = await HTTP.post("/refresh-token");
     localStorage.setItem("token", data.token);
   }
+  return response;
 });
 
 export default HTTP;

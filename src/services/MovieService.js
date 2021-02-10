@@ -2,12 +2,8 @@ import http from "./BaseURL";
 
 class MovieService {
   async getAll() {
-    try {
-      const response = await http.get("movies");
-      return response.data;
-    } catch (error) {
-      console.log(error);
-    }
+    const response = await http.get("movies");
+    return response.data;
   }
 
   async getById(id) {
@@ -15,8 +11,8 @@ class MovieService {
     return response.data;
   }
 
-  async add(newMovie) {
-    const response = await http.post("movies", newMovie);
+  async create(movie) {
+    const response = await http.post("movies", movie);
     return response.data;
   }
 
