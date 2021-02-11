@@ -1,8 +1,8 @@
 <template>
   <div class="container">
+      <h1 class="card-title text-center">Login</h1>
     <div class="card login-form">
       <div class="card-body">
-        <h1 class="card-title text-center">Login</h1>
         <div class="card-text">
     <form @submit.prevent="onSubmit">
 <div class="mb-3">
@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   data(){
     return{
@@ -31,11 +32,17 @@ export default {
       }
     }
   },
+
+  computed: {
+    ...mapGetters([
+
+    ])
+  },
   
   methods: {
     async onSubmit() {
       await this.$store.dispatch('login', this.credentials)
-      //this.$router.push('/')
+      this.$router.push('/')
       }
   },
 

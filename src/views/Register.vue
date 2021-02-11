@@ -1,5 +1,9 @@
 <template>
   <div class="container">
+      <h1>Register</h1>
+  <div class="card">
+    <div class="card-body">
+      <div class="card-text">
     <form @submit.prevent="onSubmit">
       <div class="mb-3">
         <label for="name" class="form-label">name</label>
@@ -39,6 +43,9 @@
       </div>
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>
+  </div>
+      </div>
+    </div>
   </div>
 </template>
 
