@@ -1,19 +1,12 @@
 import Vue from "vue";
 import Vuex from "vuex";
-
-import { mutations } from "./mutations";
-import { actions } from "./actions";
-import { getters } from "./getters";
-
+import auth from "./auth/index";
+import movies from "./movies/index";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  state: {
-    //token: JSON.parse(localStorage.getItem("token")),
-    activeUser: {},
+  modules: {
+    auth,
+    movies,
   },
-  getters,
-  actions,
-  mutations,
-  modules: {},
 });

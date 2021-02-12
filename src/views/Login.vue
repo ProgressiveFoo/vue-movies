@@ -41,7 +41,7 @@ export default {
   
   methods: {
     async onSubmit() {
-      await this.$store.dispatch('login', this.credentials)
+      await this.$store.dispatch('auth/login', this.credentials)
       this.$router.push('/')
       }
   },
