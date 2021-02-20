@@ -8,6 +8,14 @@ export const actions = {
     store.commit("setActiveUser", user);
     store.commit("setToken", token);
   },
+
+  async register(store, credentials) {
+    const { user, token } = await authService.register(credentials);
+    localStorage.setItem("token", JSON.stringify(token));
+
+    store.commit("setActiveUser", user);
+    store.commit("setToken", token);
+  },
   async getActiveUser(store) {
     if (store.getters.isAuthenticated) {
       const activeUser = await authService.getMyProfile();

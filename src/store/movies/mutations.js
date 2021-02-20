@@ -1,5 +1,5 @@
 export const mutations = {
-  allMovies(state, movies) {
+  setAllMovies(state, movies) {
     state.movies = movies;
   },
 };

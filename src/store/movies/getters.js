@@ -1,3 +1,3 @@
 export const getters = {
-  getAllMovis: (state) => state.movies,
+  allMovies: (state) => state.movies,
 };

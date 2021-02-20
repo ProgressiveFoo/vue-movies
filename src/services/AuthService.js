@@ -12,7 +12,10 @@ class AuthService {
     return response.data;
   }
 
-  getMyProfile() {}
+  async getMyProfile(token) {
+    const response = await http.post("me", token);
+    return response.data;
+  }
 }
 const authService = new AuthService();
 export default authService;

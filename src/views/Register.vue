@@ -50,7 +50,6 @@
 </template>
 
 <script>
-import authService from '../services/AuthService';
 export default {
 
   data(){
@@ -67,9 +66,8 @@ export default {
 
   methods:{
    async onSubmit(){
-     const response = await authService.register(this.registerForm)
-     this.user = response.user
-
+      await this.$store.dispatch('auth/register', this.registerForm)
+      this.$router.push('/')
     }
   }
 }
